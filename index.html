@@ -3,646 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SavoirPartagé - La communauté de questions-réponses intelligentes</title>
+    <title>L'Histoire Incroyable du Café - Une Boisson Qui a Changé le Monde | Quora</title>
     <style>
-        /* Reset et styles de base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
-        
         body {
-            background-color: #f8f9fa;
-            color: #333;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-        }
-        
-        /* Header */
-        header {
-            background-color: #fff;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 10px 20px;
-        }
-        
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #b92b27;
-            text-decoration: none;
-        }
-        
-        .search-bar {
-            flex-grow: 1;
-            margin: 0 20px;
-        }
-        
-        .search-bar input {
-            width: 100%;
-            max-width: 600px;
-            padding: 8px 15px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            font-size: 14px;
-        }
-        
-        .auth-buttons a {
-            margin-left: 15px;
-            padding: 8px 15px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .login {
-            color: #b92b27;
-        }
-        
-        .signup {
-            background-color: #b92b27;
-            color: white;
-        }
-        
-        /* Contenu principal */
-        .container {
-            display: flex;
-            max-width: 1200px;
-            margin: 20px auto;
-            gap: 20px;
-        }
-        
-        .sidebar {
-            width: 250px;
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        .sidebar-menu {
-            list-style: none;
-        }
-        
-        .sidebar-menu li {
-            margin-bottom: 10px;
-        }
-        
-        .sidebar-menu a {
-            display: block;
-            padding: 8px 10px;
             color: #333;
-            text-decoration: none;
-            border-radius: 4px;
-        }
-        
-        .sidebar-menu a:hover {
-            background-color: #f0f0f0;
-        }
-        
-        .sidebar-menu .active {
-            background-color: #f8e8e8;
-            color: #b92b27;
-            font-weight: 500;
-        }
-        
-        .main-content {
-            flex-grow: 1;
-        }
-        
-        .question-feed {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        .question-card {
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #2b2b2b;
+            margin-bottom: 15px;
+        }
+        
+        .author {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .author-name {
+            font-weight: 600;
+            color: #2b2b2b;
+        }
+        
+        .author-info {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .content {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        
+        .content p {
+            margin-bottom: 20px;
+        }
+        
+        .upvote {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .upvote-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .upvote-count {
+            margin-left: 5px;
+            font-weight: 600;
+        }
+        
+        .comments-section {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .comment {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
             border-bottom: 1px solid #eee;
         }
         
-        .question-card:last-child {
-            border-bottom: none;
-        }
-        
-        .question-title {
-            font-size: 18px;
+        .comment-author {
             font-weight: 600;
-            margin-bottom: 10px;
-            color: #333;
+            margin-bottom: 5px;
         }
         
-        .question-content {
-            margin-bottom: 15px;
-            color: #555;
-        }
-        
-        .question-meta {
-            display: flex;
-            align-items: center;
-            font-size: 13px;
-            color: #777;
-        }
-        
-        .answers-count, .views-count {
-            margin-right: 15px;
-        }
-        
-        .question-actions {
-            display: flex;
-            margin-top: 15px;
-        }
-        
-        .action-btn {
-            background: none;
-            border: none;
-            padding: 5px 10px;
-            margin-right: 10px;
-            cursor: pointer;
-            color: #777;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .action-btn:hover {
-            color: #b92b27;
-        }
-        
-        .action-btn svg {
-            margin-right: 5px;
-        }
-        
-        /* Sidebar droite */
-        .right-sidebar {
-            width: 300px;
-        }
-        
-        .widget {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        .widget-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #333;
-        }
-        
-        .topic-list {
-            list-style: none;
-        }
-        
-        .topic-item {
-            margin-bottom: 8px;
-        }
-        
-        .topic-link {
-            color: #555;
-            text-decoration: none;
-        }
-        
-        .topic-link:hover {
-            color: #b92b27;
-            text-decoration: underline;
-        }
-        
-        /* Pop-up cadeau */
-        .gift-popup {
-            display: none;
+        .quora-plus-modal {
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            padding: 20px;
+            width: 300px;
             z-index: 1000;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
+            display: none;
+            animation: slideIn 0.3s ease-out;
         }
         
-        .gift-popup h2 {
-            color: #b92b27;
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .quora-plus-header {
+            display: flex;
+            align-items: center;
             margin-bottom: 15px;
         }
         
-        .gift-popup p {
-            margin-bottom: 20px;
-            color: #555;
+        .quora-plus-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
         }
         
-        .gift-popup form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        .quora-plus-title {
+            font-weight: 600;
+            font-size: 18px;
         }
         
-        .gift-popup input {
-            padding: 10px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
+        .quora-plus-text {
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #666;
         }
         
-        .gift-popup button {
-            padding: 12px;
+        .quora-plus-button {
             background-color: #b92b27;
             color: white;
             border: none;
-            border-radius: 5px;
-            font-size: 16px;
+            padding: 10px 15px;
+            border-radius: 20px;
             font-weight: 600;
             cursor: pointer;
+            width: 100%;
         }
         
-        .gift-popup button:hover {
-            background-color: #a5221f;
-        }
-        
-        .close-popup {
+        .close-modal {
             position: absolute;
             top: 10px;
-            right: 15px;
-            font-size: 24px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 18px;
             cursor: pointer;
-            color: #777;
+            color: #999;
         }
         
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 999;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #fff;
-            padding: 30px 0;
-            margin-top: 40px;
-            border-top: 1px solid #eee;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        
-        .footer-section {
-            width: 23%;
-            min-width: 200px;
-            margin-bottom: 20px;
-        }
-        
-        .footer-section h3 {
-            font-size: 16px;
-            margin-bottom: 15px;
-            color: #333;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 8px;
-        }
-        
-        .footer-links a {
-            color: #777;
-            text-decoration: none;
-        }
-        
-        .footer-links a:hover {
-            color: #b92b27;
-            text-decoration: underline;
-        }
-        
-        .copyright {
-            text-align: center;
-            margin-top: 20px;
-            color: #777;
-            font-size: 14px;
-        }
-        
-        /* Responsive */
-        @media (max-width: 992px) {
-            .container {
-                flex-direction: column;
-            }
-            
-            .sidebar, .right-sidebar {
-                width: 100%;
-            }
-            
-            .footer-section {
-                width: 48%;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .search-bar {
-                width: 100%;
-                margin: 15px 0;
-            }
-            
-            .auth-buttons {
-                margin-top: 15px;
-            }
-            
-            .footer-section {
-                width: 100%;
-            }
+        .gift-icon {
+            color: #ffbf00;
+            font-size: 24px;
+            margin-right: 5px;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="navbar">
-            <a href="#" class="logo">SavoirPartagé</a>
-            <div class="search-bar">
-                <input type="text" placeholder="Rechercher des questions, des sujets ou des personnes...">
-            </div>
-            <div class="auth-buttons">
-                <a href="#" class="login">Connexion</a>
-                <a href="#" class="signup">Inscription</a>
-            </div>
-        </div>
-    </header>
-    
-    <!-- Contenu principal -->
-    <div class="container">
-        <!-- Sidebar gauche -->
-        <div class="sidebar">
-            <ul class="sidebar-menu">
-                <li><a href="#" class="active">Accueil</a></li>
-                <li><a href="#">Questions</a></li>
-                <li><a href="#">Espaces</a></li>
-                <li><a href="#">Notifications</a></li>
-                <li><a href="#">Messages</a></li>
-                <li><a href="#">Profil</a></li>
-                <li><a href="#">Créer un espace</a></li>
-                <li><a href="#">Paramètres</a></li>
-            </ul>
-        </div>
-        
-        <!-- Flux de questions -->
-        <div class="main-content">
-            <div class="question-feed">
-                <div class="question-card">
-                    <h2 class="question-title">Quels sont les meilleurs conseils pour améliorer sa productivité en télétravail ?</h2>
-                    <div class="question-content">
-                        <p>Je travaille à distance depuis 6 mois et j'ai du mal à rester productif toute la journée. Quelles sont vos meilleures astuces pour garder le focus et être efficace quand on travaille de chez soi ?</p>
-                    </div>
-                    <div class="question-meta">
-                        <span class="answers-count">24 réponses</span>
-                        <span class="views-count">1,2k vues</span>
-                    </div>
-                    <div class="question-actions">
-                        <button class="action-btn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
-                            </svg>
-                            Voter
-                        </button>
-                        <button class="action-btn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                            </svg>
-                            Répondre
-                        </button>
-                        <button class="action-btn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
-                            </svg>
-                            Partager
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="question-card">
-                    <h2 class="question-title">Comment apprendre une nouvelle langue efficacement en tant qu'adulte ?</h2>
-                    <div class="question-content">
-                        <p>J'aimerais apprendre l'espagnol mais les méthodes traditionnelles ne semblent pas fonctionner pour moi. Quelles sont les techniques les plus efficaces pour apprendre une langue rapidement quand on a plus de 30 ans ?</p>
-                    </div>
-                    <div class="question-meta">
-                        <span class="answers-count">37 réponses</span>
-                        <span class="views-count">2,8k vues</span>
-                    </div>
-                    <div class="question-actions">
-                        <button class="action-btn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
-                            </svg>
-                            Voter
-                        </button>
-                        <button class="action-btn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                            </svg>
-                            Répondre
-                        </button>
-                        <button class="action-btn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
-                            </svg>
-                            Partager
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="question-card">
-                    <h2 class="question-title">Quelles sont les compétences les plus utiles à apprendre en 2024 pour booster sa carrière ?</h2>
-                    <div class="question-content">
-                        <p>Dans un monde en constante évolution, quelles compétences (techniques ou non) valent vraiment la peine d'être apprises cette année pour rester compétitif sur le marché du travail ?</p>
-                    </div>
-                    <div class="question-meta">
-                        <span class="answers-count">42 réponses</span>
-                        <span class="views-count">3,5k vues</span>
-                    </div>
-                    <div class="question-actions">
-                        <button class="action-btn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
-                            </svg>
-                            Voter
-                        </button>
-                        <button class="action-btn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                            </svg>
-                            Répondre
-                        </button>
-                        <button class="action-btn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
-                            </svg>
-                            Partager
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Sidebar droite -->
-        <div class="right-sidebar">
-            <div class="widget">
-                <h3 class="widget-title">Espaces populaires</h3>
-                <ul class="topic-list">
-                    <li class="topic-item"><a href="#" class="topic-link">Productivité et organisation</a></li>
-                    <li class="topic-item"><a href="#" class="topic-link">Développement personnel</a></li>
-                    <li class="topic-item"><a href="#" class="topic-link">Technologie et innovation</a></li>
-                    <li class="topic-item"><a href="#" class="topic-link">Carrière et emploi</a></li>
-                    <li class="topic-item"><a href="#" class="topic-link">Santé et bien-être</a></li>
-                    <li class="topic-item"><a href="#" class="topic-link">Voyages et cultures</a></li>
-                </ul>
-            </div>
-            
-            <div class="widget">
-                <h3 class="widget-title">Questions similaires</h3>
-                <ul class="topic-list">
-                    <li class="topic-item"><a href="#" class="topic-link">Comment gérer son temps efficacement ?</a></li>
-                    <li class="topic-item"><a href="#" class="topic-link">Quelles applications pour améliorer sa productivité ?</a></li>
-                    <li class="topic-item"><a href="#" class="topic-link">Télétravail : comment séparer vie pro et perso ?</a></li>
-                    <li class="topic-item"><a href="#" class="topic-link">Les meilleurs outils collaboratifs pour équipes distantes</a></li>
-                </ul>
-            </div>
-            
-            <div class="widget">
-                <h3 class="widget-title">À propos de SavoirPartagé</h3>
-                <p>SavoirPartagé est une plateforme où poser des questions et partager des connaissances avec des personnes du monde entier. Rejoignez notre communauté pour découvrir, apprendre et échanger.</p>
+    <div class="header">
+        <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Tasse de café" class="header-image">
+        <h1>L'Histoire Incroyable du Café: Comment une Simple Baie a Changé le Monde</h1>
+        <div class="author">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Auteur" class="author-avatar">
+            <div>
+                <div class="author-name">Jean Dupont</div>
+                <div class="author-info">Historien des cultures alimentaires · 15 mai 2023</div>
             </div>
         </div>
     </div>
     
-    <!-- Pop-up cadeau -->
-    <div class="overlay" id="overlay"></div>
-    <div class="gift-popup" id="giftPopup">
-        <span class="close-popup" id="closePopup">&times;</span>
-        <h2>🎁 Offre spéciale pour les nouveaux membres !</h2>
-        <p>Inscrivez-vous maintenant et obtenez un accès gratuit à notre formation premium "Boostez votre productivité" (valeur 49€)</p>
-        <form id="giftForm">
-            <input type="text" placeholder="Votre nom" required>
-            <input type="email" placeholder="Votre email" required>
-            <button type="submit">Obtenir mon cadeau</button>
-        </form>
-        <p><small>Offre valable pour les 50 premières inscriptions aujourd'hui</small></p>
+    <div class="content">
+        <p>Imaginez un monde sans café. Pas de cafés chauds le matin, pas de cafés entre amis, pas de culture caféière dans des dizaines de pays. Pourtant, cette boisson qui fait partie intégrante de notre quotidien a une histoire fascinante qui remonte à plusieurs siècles.</p>
+        
+        <h2>La Légende de Kaldi et ses Chèvres Dansantes</h2>
+        
+        <p>L'histoire du café commence en Éthiopie, vers le 9ème siècle, avec une légende aussi délicieuse que le breuvage lui-même. Un berger nommé Kaldi aurait remarqué que ses chèvres devenaient étrangement énergiques après avoir mangé les baies rouges d'un certain arbuste. Intrigué, il essaya lui-même ces baies et ressentit une vitalité nouvelle.</p>
+        
+        <p>Kaldi apporta ces baies à un monastère local, où les moines, après avoir initialement rejeté ces "fruits du diable", découvrirent qu'une infusion de ces graines les aidait à rester éveillés pendant leurs longues heures de prière. Ainsi serait né le premier café - bien différent de celui que nous connaissons aujourd'hui.</p>
+        
+        <h2>L'Expansion du Café à Travers le Monde</h2>
+        
+        <p>Au 15ème siècle, le café atteint la péninsule arabique, où les méthodes de torréfaction et de préparation que nous connaissons commencent à se développer. La ville de Mocha au Yémen devient un centre névralgique du commerce du café. Les établissements servant du café, les premiers "cafés", apparaissent à La Mecque sous le nom de "qahveh khaneh".</p>
+        
+        <p>Au 17ème siècle, des voyageurs européens ramènent des histoires sur cette "boisson noire des Arabes". Le café arrive à Venise en 1615, puis à Londres en 1652, où le premier café anglais ouvre ses portes. Ces établissements deviennent rapidement des lieux de rencontre pour intellectuels, hommes d'affaires et artistes, si bien qu'on les appelle des "universités à un penny".</p>
+        
+        <h2>Le Café et la Révolution</h2>
+        
+        <p>Saviez-vous que le café a joué un rôle dans la Révolution française ? Le Café Procope, ouvert à Paris en 1686, était fréquenté par des figures comme Voltaire, Rousseau et Diderot. C'est dans ces lieux que se forgeaient les idées des Lumières.</p>
+        
+        <p>De même, à Boston, le Green Dragon Tavern était surnommé le "Quartier Général de la Révolution" - c'est là que fut planifiée la Boston Tea Party. Ironiquement, c'est en partie le rejet du thé britannique (taxé) au profit du café qui marqua l'identité américaine naissante.</p>
+        
+        <h2>L'Impact Économique et Culturel</h2>
+        
+        <p>Aujourd'hui, le café est la deuxième marchandise la plus échangée au monde après le pétrole. Environ 2,25 milliards de tasses de café sont consommées chaque jour dans le monde. Mais au-delà des chiffres, le café a créé des rituels sociaux, des espaces de rencontre et même des styles architecturaux (pensez aux cafés viennois ou aux coffee shops modernes).</p>
+        
+        <p>La prochaine fois que vous sirotez votre espresso ou votre latte, prenez un moment pour apprécier ce voyage extraordinaire à travers les siècles et les continents - tout cela dans une simple tasse.</p>
     </div>
     
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>SavoirPartagé</h3>
-                <ul class="footer-links">
-                    <li><a href="#">À propos</a></li>
-                    <li><a href="#">Carrières</a></li>
-                    <li><a href="#">Presse</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Communauté</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Règles</a></li>
-                    <li><a href="#">Modération</a></li>
-                    <li><a href="#">Confidentialité</a></li>
-                    <li><a href="#">Aide</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Entreprise</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Conditions</a></li>
-                    <li><a href="#">Confidentialité</a></li>
-                    <li><a href="#">Cookies</a></li>
-                    <li><a href="#">Mentions légales</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Suivez-nous</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                </ul>
-            </div>
+    <div class="upvote">
+        <button class="upvote-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4L3 15H21L12 4Z" stroke="#666" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M12 10V20" stroke="#666" stroke-width="2"/>
+            </svg>
+            <span class="upvote-count">4.2k</span>
+        </button>
+        <span style="margin-left: 15px; color: #666;">4.2k personnes ont trouvé cela utile</span>
+    </div>
+    
+    <div class="comments-section">
+        <h3>32 commentaires</h3>
+        
+        <div class="comment">
+            <div class="comment-author">Marie Lambert · Professeur d'histoire</div>
+            <p>Excellent article ! Petite précision : le café n'a été introduit en Europe qu'après la bataille de Vienne en 1683, lorsque les Turcs en fuite ont abandonné des sacs de grains de café. Les Viennois ont ainsi découvert cette boisson et créé les premiers cafés européens.</p>
         </div>
         
-        <div class="copyright">
-            <p>&copy; 2024 SavoirPartagé. Tous droits réservés.</p>
+        <div class="comment">
+            <div class="comment-author">Thomas Moreau · Barista professionnel</div>
+            <p>Article très complet ! Aujourd'hui, on assiste à une troisième vague de café où l'accent est mis sur la qualité des grains, les méthodes de culture éthiques et les méthodes d'extraction artisanales. Le café est passé de simple boisson stimulante à un véritable produit gastronomique.</p>
         </div>
-    </footer>
+    </div>
+    
+    <div class="quora-plus-modal" id="quoraPlusModal">
+        <button class="close-modal" id="closeModal">×</button>
+        <div class="quora-plus-header">
+            <span class="gift-icon">🎁</span>
+            <div class="quora-plus-title">Accès Exclusif à Quora+</div>
+        </div>
+        <div class="quora-plus-text">
+            Vous aimez ce contenu ? Avec Quora+, accédez à des milliers d'articles premium comme celui-ci, sans publicité et avec des fonctionnalités exclusives.
+        </div>
+        <button class="quora-plus-button" id="quoraPlusButton">S'identifier pour accéder à Quora+</button>
+    </div>
     
     <script>
-        // Affichage du pop-up après 5 secondes
+        // Afficher la notification après 10 secondes
         setTimeout(function() {
-            document.getElementById('overlay').style.display = 'block';
-            document.getElementById('giftPopup').style.display = 'block';
-        }, 5000);
+            document.getElementById('quoraPlusModal').style.display = 'block';
+        }, 10000);
         
-        // Fermeture du pop-up
-        document.getElementById('closePopup').addEventListener('click', function() {
-            document.getElementById('overlay').style.display = 'none';
-            document.getElementById('giftPopup').style.display = 'none';
+        // Fermer la modal
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('quoraPlusModal').style.display = 'none';
         });
         
-        document.getElementById('overlay').addEventListener('click', function() {
-            document.getElementById('overlay').style.display = 'none';
-            document.getElementById('giftPopup').style.display = 'none';
+        // Redirection vers Quora
+        document.getElementById('quoraPlusButton').addEventListener('click', function() {
+            window.location.href = 'https://www.quora.com/';
         });
         
-        // Gestion du formulaire
-        document.getElementById('giftForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Merci ! Votre cadeau vous sera envoyé par email sous 24 heures.');
-            document.getElementById('overlay').style.display = 'none';
-            document.getElementById('giftPopup').style.display = 'none';
+        // Fermer la modal si on clique en dehors
+        window.addEventListener('click', function(event) {
+            if (event.target == document.getElementById('quoraPlusModal')) {
+                document.getElementById('quoraPlusModal').style.display = 'none';
+            }
         });
-        
-        // Simulation de compteur de vues qui augmente
-        setInterval(function() {
-            const viewsElements = document.querySelectorAll('.views-count');
-            viewsElements.forEach(el => {
-                const current = parseInt(el.textContent.replace(/\D/g, ''));
-                el.textContent = (current + Math.floor(Math.random() * 10)).toLocaleString() + ' vues';
-            });
-        }, 30000);
     </script>
 </body>
 </html>
