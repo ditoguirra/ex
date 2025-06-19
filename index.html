@@ -5,104 +5,338 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>L'Histoire Incroyable du Café - Une Boisson Qui a Changé le Monde | Quora</title>
     <style>
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
+            background-color: #f8f9fa;
             color: #333;
-            max-width: 800px;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 10px 20px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
         }
         
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #b92b27;
+            text-decoration: none;
         }
         
-        .header-image {
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            max-width: 600px;
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .quora-plus-btn {
+            background-color: #b92b27;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .login {
+            color: #b92b27;
+            margin-right: 15px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .signup {
+            background-color: #b92b27;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* Contenu principal */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            gap: 20px;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 10px;
+        }
+        
+        .sidebar-menu a {
+            display: block;
+            padding: 8px 10px;
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        
+        .sidebar-menu a:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .sidebar-menu .active {
+            background-color: #f8e8e8;
+            color: #b92b27;
+            font-weight: 500;
+        }
+        
+        /* Article */
+        .article-container {
+            flex-grow: 1;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .article-header-image {
             width: 100%;
             max-height: 400px;
             object-fit: cover;
             border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        
-        h1 {
-            font-size: 28px;
-            font-weight: 600;
-            color: #2b2b2b;
-            margin-bottom: 15px;
-        }
-        
-        .author {
-            display: flex;
-            align-items: center;
             margin-bottom: 25px;
         }
         
+        .article-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2b2b2b;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .author-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
         .author-avatar {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            margin-right: 10px;
+            margin-right: 15px;
         }
         
         .author-name {
             font-weight: 600;
             color: #2b2b2b;
+            margin-bottom: 3px;
         }
         
-        .author-info {
+        .author-details {
             font-size: 14px;
             color: #666;
         }
         
-        .content {
+        .article-content {
             font-size: 18px;
+            line-height: 1.7;
             margin-bottom: 40px;
         }
         
-        .content p {
-            margin-bottom: 20px;
+        .article-content p {
+            margin-bottom: 25px;
         }
         
-        .upvote {
+        .article-content h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 35px 0 20px;
+            color: #2b2b2b;
+        }
+        
+        .article-actions {
             display: flex;
             align-items: center;
             margin-bottom: 30px;
-        }
-        
-        .upvote-button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .upvote-count {
-            margin-left: 5px;
-            font-weight: 600;
-        }
-        
-        .comments-section {
-            border-top: 1px solid #eee;
-            padding-top: 20px;
-        }
-        
-        .comment {
-            margin-bottom: 20px;
             padding-bottom: 20px;
             border-bottom: 1px solid #eee;
         }
         
-        .comment-author {
-            font-weight: 600;
-            margin-bottom: 5px;
+        .upvote-btn {
+            display: flex;
+            align-items: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-right: 20px;
+            color: #666;
+            font-size: 15px;
         }
         
+        .upvote-btn:hover {
+            color: #b92b27;
+        }
+        
+        .upvote-icon {
+            margin-right: 5px;
+            font-size: 20px;
+        }
+        
+        .action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-right: 20px;
+            color: #666;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .action-btn:hover {
+            color: #b92b27;
+        }
+        
+        .action-icon {
+            margin-right: 5px;
+            font-size: 18px;
+        }
+        
+        /* Commentaires */
+        .comments-section {
+            margin-top: 30px;
+        }
+        
+        .comments-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2b2b2b;
+        }
+        
+        .comment {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comment:last-child {
+            border-bottom: none;
+        }
+        
+        .comment-author {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .comment-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .comment-author-name {
+            font-weight: 600;
+            font-size: 15px;
+        }
+        
+        .comment-author-bio {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .comment-text {
+            margin-left: 46px;
+            font-size: 16px;
+        }
+        
+        /* Sidebar droite */
+        .right-sidebar {
+            width: 300px;
+        }
+        
+        .widget {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .widget-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .topic-list {
+            list-style: none;
+        }
+        
+        .topic-item {
+            margin-bottom: 8px;
+        }
+        
+        .topic-link {
+            color: #555;
+            text-decoration: none;
+        }
+        
+        .topic-link:hover {
+            color: #b92b27;
+            text-decoration: underline;
+        }
+        
+        /* Pop-up Quora+ */
         .quora-plus-modal {
             position: fixed;
             bottom: 20px;
@@ -172,74 +406,186 @@
             font-size: 24px;
             margin-right: 5px;
         }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar, .right-sidebar {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .search-bar {
+                width: 100%;
+                margin: 15px 0;
+            }
+            
+            .auth-buttons {
+                margin-top: 15px;
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Tasse de café" class="header-image">
-        <h1>L'Histoire Incroyable du Café: Comment une Simple Baie a Changé le Monde</h1>
-        <div class="author">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Auteur" class="author-avatar">
-            <div>
-                <div class="author-name">Jean Dupont</div>
-                <div class="author-info">Historien des cultures alimentaires · 15 mai 2023</div>
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo">Quora</a>
+            <div class="search-bar">
+                <input type="text" placeholder="Rechercher sur Quora...">
+            </div>
+            <div class="auth-buttons">
+                <a href="#" class="quora-plus-btn">QUORA + GRATUIT</a>
+                <a href="#" class="login">Connexion</a>
+                <a href="#" class="signup">Inscription</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Contenu principal -->
+    <div class="container">
+        <!-- Sidebar gauche -->
+        <div class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active">Accueil</a></li>
+                <li><a href="#">Questions</a></li>
+                <li><a href="#">Espaces</a></li>
+                <li><a href="#">Notifications</a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="#">Profil</a></li>
+                <li><a href="#">Créer un espace</a></li>
+                <li><a href="#">Paramètres</a></li>
+            </ul>
+        </div>
+        
+        <!-- Article -->
+        <div class="article-container">
+            <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Tasse de café" class="article-header-image">
+            <h1 class="article-title">L'Histoire Incroyable du Café: Comment une Simple Baie a Changé le Monde</h1>
+            
+            <div class="author-info">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Auteur" class="author-avatar">
+                <div>
+                    <div class="author-name">Jean Dupont</div>
+                    <div class="author-details">Historien des cultures alimentaires · 15 mai 2023 · 12 min de lecture</div>
+                </div>
+            </div>
+            
+            <div class="article-content">
+                <p>Imaginez un monde sans café. Pas de cafés chauds le matin, pas de cafés entre amis, pas de culture caféière dans des dizaines de pays. Pourtant, cette boisson qui fait partie intégrante de notre quotidien a une histoire fascinante qui remonte à plusieurs siècles.</p>
+                
+                <h2>La Légende de Kaldi et ses Chèvres Dansantes</h2>
+                
+                <p>L'histoire du café commence en Éthiopie, vers le 9ème siècle, avec une légende aussi délicieuse que le breuvage lui-même. Un berger nommé Kaldi aurait remarqué que ses chèvres devenaient étrangement énergiques après avoir mangé les baies rouges d'un certain arbuste. Intrigué, il essaya lui-même ces baies et ressentit une vitalité nouvelle.</p>
+                
+                <p>Kaldi apporta ces baies à un monastère local, où les moines, après avoir initialement rejeté ces "fruits du diable", découvrirent qu'une infusion de ces graines les aidait à rester éveillés pendant leurs longues heures de prière. Ainsi serait né le premier café - bien différent de celui que nous connaissons aujourd'hui.</p>
+                
+                <h2>L'Expansion du Café à Travers le Monde</h2>
+                
+                <p>Au 15ème siècle, le café atteint la péninsule arabique, où les méthodes de torréfaction et de préparation que nous connaissons commencent à se développer. La ville de Mocha au Yémen devient un centre névralgique du commerce du café. Les établissements servant du café, les premiers "cafés", apparaissent à La Mecque sous le nom de "qahveh khaneh".</p>
+                
+                <p>Au 17ème siècle, des voyageurs européens ramènent des histoires sur cette "boisson noire des Arabes". Le café arrive à Venise en 1615, puis à Londres en 1652, où le premier café anglais ouvre ses portes. Ces établissements deviennent rapidement des lieux de rencontre pour intellectuels, hommes d'affaires et artistes, si bien qu'on les appelle des "universités à un penny".</p>
+                
+                <h2>Le Café et la Révolution</h2>
+                
+                <p>Saviez-vous que le café a joué un rôle dans la Révolution française ? Le Café Procope, ouvert à Paris en 1686, était fréquenté par des figures comme Voltaire, Rousseau et Diderot. C'est dans ces lieux que se forgeaient les idées des Lumières.</p>
+                
+                <p>De même, à Boston, le Green Dragon Tavern était surnommé le "Quartier Général de la Révolution" - c'est là que fut planifiée la Boston Tea Party. Ironiquement, c'est en partie le rejet du thé britannique (taxé) au profit du café qui marqua l'identité américaine naissante.</p>
+                
+                <h2>L'Impact Économique et Culturel</h2>
+                
+                <p>Aujourd'hui, le café est la deuxième marchandise la plus échangée au monde après le pétrole. Environ 2,25 milliards de tasses de café sont consommées chaque jour dans le monde. Mais au-delà des chiffres, le café a créé des rituels sociaux, des espaces de rencontre et même des styles architecturaux (pensez aux cafés viennois ou aux coffee shops modernes).</p>
+                
+                <p>La prochaine fois que vous sirotez votre espresso ou votre latte, prenez un moment pour apprécier ce voyage extraordinaire à travers les siècles et les continents - tout cela dans une simple tasse.</p>
+            </div>
+            
+            <div class="article-actions">
+                <button class="upvote-btn">
+                    <span class="upvote-icon">▲</span>
+                    <span>4.2k</span>
+                </button>
+                <button class="action-btn">
+                    <span class="action-icon">💬</span>
+                    <span>32 commentaires</span>
+                </button>
+                <button class="action-btn">
+                    <span class="action-icon">↗️</span>
+                    <span>Partager</span>
+                </button>
+            </div>
+            
+            <div class="comments-section">
+                <h3 class="comments-title">Commentaires</h3>
+                
+                <div class="comment">
+                    <div class="comment-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Commentateur" class="comment-avatar">
+                        <div>
+                            <div class="comment-author-name">Marie Lambert</div>
+                            <div class="comment-author-bio">Professeur d'histoire</div>
+                        </div>
+                    </div>
+                    <div class="comment-text">
+                        Excellent article ! Petite précision : le café n'a été introduit en Europe qu'après la bataille de Vienne en 1683, lorsque les Turcs en fuite ont abandonné des sacs de grains de café. Les Viennois ont ainsi découvert cette boisson et créé les premiers cafés européens.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-author">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Commentateur" class="comment-avatar">
+                        <div>
+                            <div class="comment-author-name">Thomas Moreau</div>
+                            <div class="comment-author-bio">Barista professionnel</div>
+                        </div>
+                    </div>
+                    <div class="comment-text">
+                        Article très complet ! Aujourd'hui, on assiste à une troisième vague de café où l'accent est mis sur la qualité des grains, les méthodes de culture éthiques et les méthodes d'extraction artisanales. Le café est passé de simple boisson stimulante à un véritable produit gastronomique.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sidebar droite -->
+        <div class="right-sidebar">
+            <div class="widget">
+                <h3 class="widget-title">Articles similaires</h3>
+                <ul class="topic-list">
+                    <li class="topic-item"><a href="#" class="topic-link">L'histoire du thé: de la Chine au monde entier</a></li>
+                    <li class="topic-item"><a href="#" class="topic-link">Comment le chocolat a conquis l'Europe</a></li>
+                    <li class="topic-item"><a href="#" class="topic-link">Les épices qui ont changé le cours de l'histoire</a></li>
+                    <li class="topic-item"><a href="#" class="topic-link">L'impact économique des produits coloniaux</a></li>
+                </ul>
+            </div>
+            
+            <div class="widget">
+                <h3 class="widget-title">Pourquoi utiliser Quora?</h3>
+                <p>Quora est le meilleur endroit pour partager des connaissances et mieux comprendre le monde. Rejoignez notre communauté pour poser des questions et obtenir des réponses de qualité.</p>
+            </div>
+            
+            <div class="widget">
+                <h3 class="widget-title">Espaces populaires</h3>
+                <ul class="topic-list">
+                    <li class="topic-item"><a href="#" class="topic-link">Histoire et culture</a></li>
+                    <li class="topic-item"><a href="#" class="topic-link">Gastronomie mondiale</a></li>
+                    <li class="topic-item"><a href="#" class="topic-link">Économie et commerce</a></li>
+                    <li class="topic-item"><a href="#" class="topic-link">Voyages et découvertes</a></li>
+                </ul>
             </div>
         </div>
     </div>
     
-    <div class="content">
-        <p>Imaginez un monde sans café. Pas de cafés chauds le matin, pas de cafés entre amis, pas de culture caféière dans des dizaines de pays. Pourtant, cette boisson qui fait partie intégrante de notre quotidien a une histoire fascinante qui remonte à plusieurs siècles.</p>
-        
-        <h2>La Légende de Kaldi et ses Chèvres Dansantes</h2>
-        
-        <p>L'histoire du café commence en Éthiopie, vers le 9ème siècle, avec une légende aussi délicieuse que le breuvage lui-même. Un berger nommé Kaldi aurait remarqué que ses chèvres devenaient étrangement énergiques après avoir mangé les baies rouges d'un certain arbuste. Intrigué, il essaya lui-même ces baies et ressentit une vitalité nouvelle.</p>
-        
-        <p>Kaldi apporta ces baies à un monastère local, où les moines, après avoir initialement rejeté ces "fruits du diable", découvrirent qu'une infusion de ces graines les aidait à rester éveillés pendant leurs longues heures de prière. Ainsi serait né le premier café - bien différent de celui que nous connaissons aujourd'hui.</p>
-        
-        <h2>L'Expansion du Café à Travers le Monde</h2>
-        
-        <p>Au 15ème siècle, le café atteint la péninsule arabique, où les méthodes de torréfaction et de préparation que nous connaissons commencent à se développer. La ville de Mocha au Yémen devient un centre névralgique du commerce du café. Les établissements servant du café, les premiers "cafés", apparaissent à La Mecque sous le nom de "qahveh khaneh".</p>
-        
-        <p>Au 17ème siècle, des voyageurs européens ramènent des histoires sur cette "boisson noire des Arabes". Le café arrive à Venise en 1615, puis à Londres en 1652, où le premier café anglais ouvre ses portes. Ces établissements deviennent rapidement des lieux de rencontre pour intellectuels, hommes d'affaires et artistes, si bien qu'on les appelle des "universités à un penny".</p>
-        
-        <h2>Le Café et la Révolution</h2>
-        
-        <p>Saviez-vous que le café a joué un rôle dans la Révolution française ? Le Café Procope, ouvert à Paris en 1686, était fréquenté par des figures comme Voltaire, Rousseau et Diderot. C'est dans ces lieux que se forgeaient les idées des Lumières.</p>
-        
-        <p>De même, à Boston, le Green Dragon Tavern était surnommé le "Quartier Général de la Révolution" - c'est là que fut planifiée la Boston Tea Party. Ironiquement, c'est en partie le rejet du thé britannique (taxé) au profit du café qui marqua l'identité américaine naissante.</p>
-        
-        <h2>L'Impact Économique et Culturel</h2>
-        
-        <p>Aujourd'hui, le café est la deuxième marchandise la plus échangée au monde après le pétrole. Environ 2,25 milliards de tasses de café sont consommées chaque jour dans le monde. Mais au-delà des chiffres, le café a créé des rituels sociaux, des espaces de rencontre et même des styles architecturaux (pensez aux cafés viennois ou aux coffee shops modernes).</p>
-        
-        <p>La prochaine fois que vous sirotez votre espresso ou votre latte, prenez un moment pour apprécier ce voyage extraordinaire à travers les siècles et les continents - tout cela dans une simple tasse.</p>
-    </div>
-    
-    <div class="upvote">
-        <button class="upvote-button">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 4L3 15H21L12 4Z" stroke="#666" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M12 10V20" stroke="#666" stroke-width="2"/>
-            </svg>
-            <span class="upvote-count">4.2k</span>
-        </button>
-        <span style="margin-left: 15px; color: #666;">4.2k personnes ont trouvé cela utile</span>
-    </div>
-    
-    <div class="comments-section">
-        <h3>32 commentaires</h3>
-        
-        <div class="comment">
-            <div class="comment-author">Marie Lambert · Professeur d'histoire</div>
-            <p>Excellent article ! Petite précision : le café n'a été introduit en Europe qu'après la bataille de Vienne en 1683, lorsque les Turcs en fuite ont abandonné des sacs de grains de café. Les Viennois ont ainsi découvert cette boisson et créé les premiers cafés européens.</p>
-        </div>
-        
-        <div class="comment">
-            <div class="comment-author">Thomas Moreau · Barista professionnel</div>
-            <p>Article très complet ! Aujourd'hui, on assiste à une troisième vague de café où l'accent est mis sur la qualité des grains, les méthodes de culture éthiques et les méthodes d'extraction artisanales. Le café est passé de simple boisson stimulante à un véritable produit gastronomique.</p>
-        </div>
-    </div>
-    
+    <!-- Pop-up Quora+ -->
     <div class="quora-plus-modal" id="quoraPlusModal">
         <button class="close-modal" id="closeModal">×</button>
         <div class="quora-plus-header">
@@ -273,6 +619,12 @@
             if (event.target == document.getElementById('quoraPlusModal')) {
                 document.getElementById('quoraPlusModal').style.display = 'none';
             }
+        });
+        
+        // Bouton QUORA + GRATUIT en header
+        document.querySelector('.quora-plus-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('quoraPlusModal').style.display = 'block';
         });
     </script>
 </body>
