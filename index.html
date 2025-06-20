@@ -7,42 +7,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Reset et styles de base */
-        :root {
-            --quora-red: #a82400;
-            --quora-red-light: #f8e8e6;
-            --quora-blue: #2b6dad;
-            --text-dark: #2b2b2b;
-            --text-medium: #666;
-            --text-light: #999;
-            --border-color: #e2e2e2;
-            --bg-light: #f8f9fa;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
         }
         
         body {
-            background-color: var(--bg-light);
-            color: var(--text-medium);
+            background-color: #f1f2f4;
+            color: #2b2b2b;
             line-height: 1.6;
-        }
-        
-        a {
-            text-decoration: none;
-            color: inherit;
         }
         
         /* Header */
         header {
             background-color: #fff;
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -53,14 +34,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
         
         .logo {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
-            color: var(--quora-red);
+            color: #b92b27;
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -68,7 +49,6 @@
         
         .logo i {
             margin-right: 8px;
-            font-size: 24px;
         }
         
         .search-bar {
@@ -79,19 +59,20 @@
         
         .search-bar input {
             width: 100%;
-            max-width: 600px;
-            padding: 10px 15px 10px 40px;
-            border: 1px solid var(--border-color);
+            max-width: 650px;
+            padding: 10px 20px 10px 45px;
+            border: 1px solid #e4e6e8;
             border-radius: 20px;
-            font-size: 14px;
-            background-color: #f1f2f3;
-            transition: var(--transition);
+            font-size: 15px;
+            background-color: #f1f2f4;
+            transition: all 0.3s ease;
         }
         
         .search-bar input:focus {
+            background-color: #fff;
+            border-color: #b92b27;
             outline: none;
-            background-color: white;
-            box-shadow: 0 0 0 2px rgba(168, 36, 0, 0.2);
+            box-shadow: 0 0 0 3px rgba(185, 43, 39, 0.1);
         }
         
         .search-bar i {
@@ -99,87 +80,86 @@
             left: 15px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--text-light);
+            color: #939598;
         }
         
         .auth-buttons {
             display: flex;
             align-items: center;
-            gap: 15px;
         }
         
         .quora-plus-btn {
-            background-color: var(--quora-red);
+            background: linear-gradient(135deg, #b92b27, #d93934);
             color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 10px 18px;
             border-radius: 20px;
             font-weight: 600;
+            margin-right: 15px;
             cursor: pointer;
-            font-size: 14px;
+            text-decoration: none;
+            font-size: 15px;
             display: flex;
             align-items: center;
-            gap: 6px;
-            transition: var(--transition);
-            box-shadow: 0 2px 4px rgba(168, 36, 0, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(185, 43, 39, 0.2);
         }
         
         .quora-plus-btn:hover {
-            background-color: #961f00;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(168, 36, 0, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(185, 43, 39, 0.3);
         }
         
         .quora-plus-btn i {
+            margin-right: 6px;
             font-size: 16px;
         }
         
         .login {
-            color: var(--quora-red);
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 20px;
-            transition: var(--transition);
+            color: #636466;
+            margin-right: 15px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
         }
         
         .login:hover {
-            background-color: var(--quora-red-light);
+            color: #b92b27;
         }
         
         .signup {
-            background-color: var(--quora-red);
+            background-color: #b92b27;
             color: white;
-            padding: 8px 16px;
+            padding: 10px 18px;
             border-radius: 20px;
+            text-decoration: none;
             font-weight: 600;
-            transition: var(--transition);
+            font-size: 15px;
+            transition: all 0.3s ease;
         }
         
         .signup:hover {
-            background-color: #961f00;
-            transform: translateY(-1px);
-            box-shadow: 0 2px 4px rgba(168, 36, 0, 0.2);
+            background-color: #d93934;
         }
         
         /* Contenu principal */
         .container {
             display: flex;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 25px auto;
             gap: 25px;
         }
         
         .sidebar {
-            width: 250px;
+            width: 280px;
             background-color: #fff;
-            border-radius: 8px;
-            padding: 15px 0;
-            box-shadow: var(--shadow-sm);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
             position: sticky;
-            align-self: flex-start;
             top: 80px;
-            max-height: calc(100vh - 105px);
-            overflow-y: auto;
+            height: fit-content;
         }
         
         .sidebar-menu {
@@ -187,61 +167,62 @@
         }
         
         .sidebar-menu li {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
         
         .sidebar-menu a {
             display: flex;
             align-items: center;
-            padding: 10px 20px;
-            color: var(--text-medium);
+            padding: 10px 12px;
+            color: #636466;
             text-decoration: none;
-            border-radius: 0 20px 20px 0;
-            transition: var(--transition);
+            border-radius: 6px;
             font-size: 15px;
+            transition: all 0.2s ease;
+        }
+        
+        .sidebar-menu a i {
+            margin-right: 12px;
+            width: 20px;
+            text-align: center;
+            font-size: 18px;
         }
         
         .sidebar-menu a:hover {
-            background-color: #f5f5f5;
+            background-color: #f7f7f8;
+            color: #2b2b2b;
         }
         
         .sidebar-menu .active {
-            background-color: var(--quora-red-light);
-            color: var(--quora-red);
+            background-color: #f8e8e8;
+            color: #b92b27;
             font-weight: 600;
-            border-left: 3px solid var(--quora-red);
-        }
-        
-        .sidebar-menu i {
-            width: 24px;
-            margin-right: 12px;
-            text-align: center;
-            font-size: 18px;
         }
         
         /* Article */
         .article-container {
             flex-grow: 1;
             background-color: #fff;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: var(--shadow-sm);
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            max-width: 800px;
         }
         
         .article-header-image {
             width: 100%;
-            max-height: 400px;
+            max-height: 450px;
             object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .article-title {
             font-size: 32px;
             font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 20px;
+            color: #2b2b2b;
+            margin-bottom: 25px;
             line-height: 1.3;
         }
         
@@ -250,40 +231,51 @@
             align-items: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid #e4e6e8;
         }
         
         .author-avatar {
-            width: 50px;
-            height: 50px;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
-            margin-right: 15px;
+            margin-right: 16px;
             object-fit: cover;
-            border: 2px solid #fff;
-            box-shadow: var(--shadow-sm);
+            border: 2px solid #f1f2f4;
         }
         
         .author-name {
             font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 3px;
+            color: #2b2b2b;
+            margin-bottom: 5px;
+            font-size: 17px;
         }
         
         .author-details {
             font-size: 14px;
-            color: var(--text-medium);
+            color: #939598;
             display: flex;
             align-items: center;
-            gap: 8px;
+            flex-wrap: wrap;
         }
         
         .author-details span {
-            display: flex;
+            margin: 0 5px;
+        }
+        
+        .premium-badge {
+            background-color: #f8e8e8;
+            color: #b92b27;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-left: 10px;
+            display: inline-flex;
             align-items: center;
         }
         
-        .author-details i {
-            font-size: 12px;
+        .premium-badge i {
+            font-size: 10px;
             margin-right: 4px;
         }
         
@@ -291,39 +283,31 @@
             font-size: 18px;
             line-height: 1.8;
             margin-bottom: 40px;
-            color: var(--text-dark);
+            color: #2b2b2b;
         }
         
         .article-content p {
-            margin-bottom: 25px;
+            margin-bottom: 28px;
         }
         
         .article-content h2 {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 700;
             margin: 40px 0 25px;
-            color: var(--text-dark);
+            color: #2b2b2b;
             position: relative;
             padding-left: 15px;
         }
         
-        .article-content h2::before {
+        .article-content h2:before {
             content: '';
             position: absolute;
             left: 0;
             top: 5px;
-            height: calc(100% - 10px);
+            bottom: 5px;
             width: 4px;
-            background-color: var(--quora-red);
+            background-color: #b92b27;
             border-radius: 2px;
-        }
-        
-        .article-content blockquote {
-            border-left: 3px solid var(--quora-red);
-            padding-left: 20px;
-            margin: 25px 0;
-            font-style: italic;
-            color: var(--text-medium);
         }
         
         .article-actions {
@@ -331,8 +315,9 @@
             align-items: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            gap: 20px;
+            border-bottom: 1px solid #e4e6e8;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .upvote-btn {
@@ -341,80 +326,84 @@
             background: none;
             border: none;
             cursor: pointer;
-            color: var(--text-medium);
+            color: #636466;
             font-size: 15px;
-            font-weight: 600;
+            font-weight: 500;
             padding: 8px 12px;
-            border-radius: 20px;
-            transition: var(--transition);
+            border-radius: 6px;
+            transition: all 0.2s ease;
         }
         
         .upvote-btn:hover {
-            color: var(--quora-red);
-            background-color: var(--quora-red-light);
+            color: #b92b27;
+            background-color: #f8e8e8;
         }
         
         .upvote-icon {
             margin-right: 8px;
-            font-size: 18px;
+            font-size: 20px;
         }
         
         .action-btn {
-            display: flex;
-            align-items: center;
             background: none;
             border: none;
             cursor: pointer;
-            color: var(--text-medium);
+            color: #636466;
             font-size: 15px;
-            font-weight: 600;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
             padding: 8px 12px;
-            border-radius: 20px;
-            transition: var(--transition);
+            border-radius: 6px;
+            transition: all 0.2s ease;
         }
         
         .action-btn:hover {
-            color: var(--quora-blue);
-            background-color: #e6f0f8;
+            color: #b92b27;
+            background-color: #f8e8e8;
         }
         
         .action-icon {
             margin-right: 8px;
-            font-size: 16px;
+            font-size: 18px;
         }
         
         /* Commentaires */
         .comments-section {
-            margin-top: 30px;
+            margin-top: 40px;
         }
         
         .comments-title {
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 25px;
-            color: var(--text-dark);
+            color: #2b2b2b;
             display: flex;
             align-items: center;
         }
         
-        .comments-title i {
-            margin-right: 10px;
+        .comments-title span {
+            margin-left: 10px;
+            font-size: 15px;
+            color: #939598;
+            font-weight: 400;
         }
         
         .comment {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e4e6e8;
         }
         
         .comment:last-child {
             border-bottom: none;
+            padding-bottom: 0;
         }
         
         .comment-author {
             display: flex;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
         
         .comment-avatar {
@@ -427,13 +416,13 @@
         
         .comment-author-name {
             font-weight: 600;
-            font-size: 15px;
-            color: var(--text-dark);
+            font-size: 16px;
+            color: #2b2b2b;
         }
         
         .comment-author-bio {
             font-size: 13px;
-            color: var(--text-medium);
+            color: #939598;
             margin-top: 2px;
         }
         
@@ -441,65 +430,61 @@
             margin-left: 52px;
             font-size: 16px;
             line-height: 1.7;
-            color: var(--text-dark);
+            color: #2b2b2b;
         }
         
         .comment-actions {
-            margin-left: 52px;
-            margin-top: 12px;
             display: flex;
+            align-items: center;
+            margin-top: 15px;
+            margin-left: 52px;
+            flex-wrap: wrap;
             gap: 15px;
         }
         
         .comment-action {
-            font-size: 13px;
-            color: var(--text-light);
+            color: #636466;
+            font-size: 14px;
+            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transition: var(--transition);
+            transition: color 0.2s;
         }
         
         .comment-action:hover {
-            color: var(--quora-blue);
+            color: #b92b27;
         }
         
         .comment-action i {
-            font-size: 14px;
+            margin-right: 6px;
+            font-size: 16px;
         }
         
         /* Sidebar droite */
         .right-sidebar {
-            width: 300px;
-            position: sticky;
-            align-self: flex-start;
-            top: 80px;
-            max-height: calc(100vh - 105px);
-            overflow-y: auto;
+            width: 320px;
         }
         
         .widget {
             background-color: #fff;
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: var(--shadow-sm);
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
         
         .widget-title {
-            font-size: 17px;
+            font-size: 18px;
             font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--text-dark);
+            margin-bottom: 18px;
+            color: #2b2b2b;
             display: flex;
             align-items: center;
         }
         
         .widget-title i {
             margin-right: 10px;
-            color: var(--quora-red);
-            font-size: 16px;
+            color: #b92b27;
         }
         
         .topic-list {
@@ -512,49 +497,48 @@
             padding-left: 15px;
         }
         
-        .topic-item::before {
+        .topic-item:before {
             content: '•';
             position: absolute;
             left: 0;
-            color: var(--quora-red);
-            font-weight: bold;
+            color: #b92b27;
         }
         
         .topic-link {
-            color: var(--text-medium);
+            color: #2b2b2b;
             text-decoration: none;
-            transition: var(--transition);
+            font-size: 15px;
+            transition: color 0.2s;
             display: block;
-            padding: 5px 0;
-            line-height: 1.4;
+            padding: 6px 0;
         }
         
         .topic-link:hover {
-            color: var(--quora-red);
+            color: #b92b27;
         }
         
         .widget-text {
-            font-size: 14px;
+            font-size: 15px;
+            color: #636466;
             line-height: 1.6;
-            color: var(--text-medium);
             margin-bottom: 15px;
         }
         
         .widget-button {
-            display: inline-block;
-            background-color: var(--quora-red);
-            color: white;
-            padding: 8px 16px;
+            background-color: #f1f2f4;
+            color: #2b2b2b;
+            border: none;
+            padding: 10px 15px;
             border-radius: 20px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: var(--transition);
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            font-size: 15px;
+            transition: background-color 0.2s;
         }
         
         .widget-button:hover {
-            background-color: #961f00;
-            transform: translateY(-1px);
-            box-shadow: 0 2px 4px rgba(168, 36, 0, 0.2);
+            background-color: #e4e6e8;
         }
         
         /* Pop-up Quora+ */
@@ -564,15 +548,15 @@
             right: 30px;
             background: white;
             border-radius: 12px;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             padding: 25px;
-            width: 350px;
+            width: 360px;
             z-index: 1000;
             display: none;
             transform: translateY(20px);
             opacity: 0;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid var(--border-color);
+            border: 1px solid #e4e6e8;
         }
         
         .quora-plus-modal.visible {
@@ -588,19 +572,19 @@
             border: none;
             font-size: 20px;
             cursor: pointer;
-            color: var(--text-light);
+            color: #939598;
             width: 30px;
             height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            transition: var(--transition);
+            transition: all 0.2s;
         }
         
         .close-modal:hover {
-            background-color: #f5f5f5;
-            color: var(--text-dark);
+            background-color: #f7f7f8;
+            color: #2b2b2b;
         }
         
         .quora-plus-header {
@@ -609,63 +593,34 @@
             margin-bottom: 20px;
         }
         
-        .quora-plus-badge {
-            background: linear-gradient(135deg, #ff8a00, #e52e71);
-            color: white;
+        .quora-plus-icon {
             width: 50px;
             height: 50px;
+            background: linear-gradient(135deg, #b92b27, #d93934);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
             margin-right: 15px;
-            flex-shrink: 0;
+            color: white;
+            font-size: 24px;
         }
         
         .quora-plus-title {
             font-weight: 700;
             font-size: 20px;
-            color: var(--text-dark);
-        }
-        
-        .quora-plus-subtitle {
-            font-size: 14px;
-            color: var(--text-medium);
-            margin-top: 3px;
+            color: #2b2b2b;
         }
         
         .quora-plus-text {
             margin-bottom: 20px;
             font-size: 15px;
-            color: var(--text-medium);
+            color: #636466;
             line-height: 1.6;
         }
         
-        .quora-plus-features {
-            margin-bottom: 20px;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 12px;
-        }
-        
-        .feature-icon {
-            color: var(--quora-red);
-            margin-right: 10px;
-            font-size: 16px;
-            margin-top: 2px;
-        }
-        
-        .feature-text {
-            font-size: 14px;
-            color: var(--text-medium);
-        }
-        
         .quora-plus-button {
-            background: linear-gradient(135deg, #ff8a00, #e52e71);
+            background: linear-gradient(135deg, #b92b27, #d93934);
             color: white;
             border: none;
             padding: 12px 20px;
@@ -674,52 +629,165 @@
             cursor: pointer;
             width: 100%;
             font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(185, 43, 39, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            transition: var(--transition);
-            box-shadow: 0 4px 8px rgba(233, 30, 99, 0.3);
         }
         
         .quora-plus-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(233, 30, 99, 0.3);
+            box-shadow: 0 6px 15px rgba(185, 43, 39, 0.3);
         }
         
         .quora-plus-button i {
-            font-size: 18px;
+            margin-right: 8px;
         }
         
-        /* Floating action button */
-        .fab {
+        .quora-plus-features {
+            margin-top: 20px;
+            border-top: 1px solid #e4e6e8;
+            padding-top: 20px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        
+        .feature-item i {
+            color: #b92b27;
+            margin-right: 10px;
+            margin-top: 3px;
+            font-size: 16px;
+        }
+        
+        .feature-text {
+            font-size: 14px;
+            color: #636466;
+        }
+        
+        /* Floating Quora+ Button */
+        .floating-quora-plus {
             position: fixed;
             bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #ff8a00, #e52e71);
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #b92b27, #d93934);
             color: white;
-            border-radius: 50%;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(185, 43, 39, 0.3);
+            z-index: 999;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            cursor: pointer;
-            z-index: 999;
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
         }
         
-        .fab:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+        .floating-quora-plus.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .floating-quora-plus:hover {
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: 0 7px 25px rgba(185, 43, 39, 0.4);
+        }
+        
+        .floating-quora-plus i {
+            margin-right: 8px;
+        }
+        
+        /* Premium Content Highlight */
+        .premium-content {
+            background-color: #faf6f0;
+            border-left: 4px solid #e8c281;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .premium-label {
+            position: absolute;
+            top: -12px;
+            left: -4px;
+            background-color: #e8c281;
+            color: #5a4a2a;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 4px 4px 0 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .premium-label i {
+            margin-right: 5px;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 10px 0;
+        }
+        
+        .mobile-nav-items {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+        }
+        
+        .mobile-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .mobile-nav-link {
+            color: #636466;
+            text-decoration: none;
+            font-size: 12px;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        .mobile-nav-link i {
+            font-size: 20px;
+            margin-bottom: 3px;
+            display: block;
+        }
+        
+        .mobile-nav-link.active {
+            color: #b92b27;
         }
         
         /* Responsive */
         @media (max-width: 1200px) {
             .container {
+                max-width: 100%;
                 padding: 0 20px;
+            }
+            
+            .sidebar {
+                width: 240px;
+            }
+            
+            .right-sidebar {
+                width: 280px;
             }
         }
         
@@ -731,25 +799,38 @@
             .sidebar, .right-sidebar {
                 width: 100%;
                 position: static;
-                max-height: none;
             }
             
-            .quora-plus-modal {
-                right: 20px;
-                bottom: 20px;
-                width: calc(100% - 40px);
-                max-width: 350px;
+            .article-container {
+                order: 2;
             }
             
-            .fab {
-                right: 20px;
-                bottom: 20px;
+            .sidebar {
+                order: 1;
+                margin-bottom: 25px;
+            }
+            
+            .right-sidebar {
+                order: 3;
+                margin-top: 25px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .widget {
+                flex: 1 1 300px;
+                margin-bottom: 0;
             }
         }
         
         @media (max-width: 768px) {
             .navbar {
                 flex-wrap: wrap;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
             }
             
             .search-bar {
@@ -760,30 +841,40 @@
             
             .auth-buttons {
                 margin-left: auto;
-            }
-            
-            .article-container {
-                padding: 20px;
+                margin-bottom: 15px;
             }
             
             .article-title {
-                font-size: 26px;
+                font-size: 28px;
+            }
+            
+            .article-content {
+                font-size: 17px;
+            }
+            
+            .quora-plus-modal {
+                width: calc(100% - 40px);
+                right: 20px;
+                bottom: 20px;
+            }
+            
+            .mobile-nav {
+                display: block;
+            }
+            
+            .sidebar {
+                display: none;
             }
         }
         
         @media (max-width: 576px) {
-            .auth-buttons {
-                width: 100%;
-                justify-content: space-between;
-                margin-top: 15px;
+            .article-container {
+                padding: 25px 20px;
+                border-radius: 0;
             }
             
-            .quora-plus-btn span {
-                display: none;
-            }
-            
-            .quora-plus-btn i {
-                margin-right: 0;
+            .article-title {
+                font-size: 24px;
             }
             
             .article-actions {
@@ -791,13 +882,49 @@
                 gap: 10px;
             }
             
-            .action-btn span, .upvote-btn span {
-                font-size: 0;
+            .upvote-btn, .action-btn {
+                margin-right: 10px;
+                margin-bottom: 5px;
             }
             
-            .action-btn i, .upvote-btn i {
+            .comment-text, .comment-actions {
+                margin-left: 0;
+            }
+            
+            .comment-author {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .comment-avatar {
+                margin-bottom: 10px;
                 margin-right: 0;
-                font-size: 20px;
+            }
+            
+            .author-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .author-avatar {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+            
+            .author-details span {
+                display: block;
+                margin: 5px 0;
+            }
+            
+            .author-details span:not(:last-child):after {
+                content: none;
+            }
+            
+            .floating-quora-plus {
+                width: 90%;
+                text-align: center;
+                padding: 12px 15px;
+                font-size: 14px;
             }
         }
     </style>
@@ -812,10 +939,9 @@
                 <input type="text" placeholder="Rechercher sur Quora...">
             </div>
             <div class="auth-buttons">
-                <button class="quora-plus-btn">
-                    <i class="fas fa-crown"></i>
-                    <span>Quora+</span>
-                </button>
+                <a href="#" class="quora-plus-btn" id="headerQuoraPlusBtn">
+                    <i class="fas fa-crown"></i>QUORA+
+                </a>
                 <a href="#" class="login">Connexion</a>
                 <a href="#" class="signup">Inscription</a>
             </div>
@@ -824,15 +950,15 @@
     
     <!-- Contenu principal -->
     <div class="container">
-        <!-- Sidebar gauche -->
+        <!-- Sidebar gauche (cachée sur mobile) -->
         <div class="sidebar">
             <ul class="sidebar-menu">
                 <li><a href="#" class="active"><i class="fas fa-home"></i>Accueil</a></li>
-                <li><a href="#"><i class="fas fa-question-circle"></i>Questions</a></li>
+                <li><a href="#"><i class="far fa-question-circle"></i>Questions</a></li>
                 <li><a href="#"><i class="fas fa-users"></i>Espaces</a></li>
-                <li><a href="#"><i class="fas fa-bell"></i>Notifications</a></li>
-                <li><a href="#"><i class="fas fa-envelope"></i>Messages</a></li>
-                <li><a href="#"><i class="fas fa-user"></i>Profil</a></li>
+                <li><a href="#"><i class="far fa-bell"></i>Notifications</a></li>
+                <li><a href="#"><i class="far fa-envelope"></i>Messages</a></li>
+                <li><a href="#"><i class="far fa-user"></i>Profil</a></li>
                 <li><a href="#"><i class="fas fa-plus-circle"></i>Créer un espace</a></li>
                 <li><a href="#"><i class="fas fa-cog"></i>Paramètres</a></li>
             </ul>
@@ -846,11 +972,13 @@
             <div class="author-info">
                 <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Auteur" class="author-avatar">
                 <div>
-                    <div class="author-name">Jean Dupont</div>
+                    <div class="author-name">Jean Dupont <span class="premium-badge"><i class="fas fa-crown"></i>PREMIUM</span></div>
                     <div class="author-details">
-                        <span><i class="fas fa-graduation-cap"></i>Historien des cultures alimentaires</span>
-                        <span><i class="far fa-clock"></i>15 mai 2023</span>
-                        <span><i class="far fa-eye"></i>12 min de lecture</span>
+                        <span>Historien des cultures alimentaires</span>
+                        <span>•</span>
+                        <span>15 mai 2023</span>
+                        <span>•</span>
+                        <span>12 min de lecture</span>
                     </div>
                 </div>
             </div>
@@ -858,15 +986,14 @@
             <div class="article-content">
                 <p>Imaginez un monde sans café. Pas de cafés chauds le matin, pas de cafés entre amis, pas de culture caféière dans des dizaines de pays. Pourtant, cette boisson qui fait partie intégrante de notre quotidien a une histoire fascinante qui remonte à plusieurs siècles.</p>
                 
-                <h2>La Légende de Kaldi et ses Chèvres Dansantes</h2>
-                
-                <p>L'histoire du café commence en Éthiopie, vers le 9ème siècle, avec une légende aussi délicieuse que le breuvage lui-même. Un berger nommé Kaldi aurait remarqué que ses chèvres devenaient étrangement énergiques après avoir mangé les baies rouges d'un certain arbuste. Intrigué, il essaya lui-même ces baies et ressentit une vitalité nouvelle.</p>
-                
-                <blockquote>
-                    "La découverte du café a marqué un tournant dans l'histoire des interactions sociales et des rituels culturels à travers le monde."
-                </blockquote>
-                
-                <p>Kaldi apporta ces baies à un monastère local, où les moines, après avoir initialement rejeté ces "fruits du diable", découvrirent qu'une infusion de ces graines les aidait à rester éveillés pendant leurs longues heures de prière. Ainsi serait né le premier café - bien différent de celui que nous connaissons aujourd'hui.</p>
+                <div class="premium-content">
+                    <div class="premium-label"><i class="fas fa-crown"></i>CONTENU PREMIUM</div>
+                    <h2>La Légende de Kaldi et ses Chèvres Dansantes</h2>
+                    
+                    <p>L'histoire du café commence en Éthiopie, vers le 9ème siècle, avec une légende aussi délicieuse que le breuvage lui-même. Un berger nommé Kaldi aurait remarqué que ses chèvres devenaient étrangement énergiques après avoir mangé les baies rouges d'un certain arbuste. Intrigué, il essaya lui-même ces baies et ressentit une vitalité nouvelle.</p>
+                    
+                    <p>Kaldi apporta ces baies à un monastère local, où les moines, après avoir initialement rejeté ces "fruits du diable", découvrirent qu'une infusion de ces graines les aidait à rester éveillés pendant leurs longues heures de prière. Ainsi serait né le premier café - bien différent de celui que nous connaissons aujourd'hui.</p>
+                </div>
                 
                 <h2>L'Expansion du Café à Travers le Monde</h2>
                 
@@ -874,11 +1001,14 @@
                 
                 <p>Au 17ème siècle, des voyageurs européens ramènent des histoires sur cette "boisson noire des Arabes". Le café arrive à Venise en 1615, puis à Londres en 1652, où le premier café anglais ouvre ses portes. Ces établissements deviennent rapidement des lieux de rencontre pour intellectuels, hommes d'affaires et artistes, si bien qu'on les appelle des "universités à un penny".</p>
                 
-                <h2>Le Café et la Révolution</h2>
-                
-                <p>Saviez-vous que le café a joué un rôle dans la Révolution française ? Le Café Procope, ouvert à Paris en 1686, était fréquenté par des figures comme Voltaire, Rousseau et Diderot. C'est dans ces lieux que se forgeaient les idées des Lumières.</p>
-                
-                <p>De même, à Boston, le Green Dragon Tavern était surnommé le "Quartier Général de la Révolution" - c'est là que fut planifiée la Boston Tea Party. Ironiquement, c'est en partie le rejet du thé britannique (taxé) au profit du café qui marqua l'identité américaine naissante.</p>
+                <div class="premium-content">
+                    <div class="premium-label"><i class="fas fa-crown"></i>CONTENU PREMIUM</div>
+                    <h2>Le Café et la Révolution</h2>
+                    
+                    <p>Saviez-vous que le café a joué un rôle dans la Révolution française ? Le Café Procope, ouvert à Paris en 1686, était fréquenté par des figures comme Voltaire, Rousseau et Diderot. C'est dans ces lieux que se forgeaient les idées des Lumières.</p>
+                    
+                    <p>De même, à Boston, le Green Dragon Tavern était surnommé le "Quartier Général de la Révolution" - c'est là que fut planifiée la Boston Tea Party. Ironiquement, c'est en partie le rejet du thé britannique (taxé) au profit du café qui marqua l'identité américaine naissante.</p>
+                </div>
                 
                 <h2>L'Impact Économique et Culturel</h2>
                 
@@ -889,25 +1019,25 @@
             
             <div class="article-actions">
                 <button class="upvote-btn">
-                    <i class="fas fa-arrow-up upvote-icon"></i>
+                    <span class="upvote-icon">▲</span>
                     <span>4.2k</span>
                 </button>
                 <button class="action-btn">
-                    <i class="far fa-comment action-icon"></i>
+                    <span class="action-icon"><i class="far fa-comment"></i></span>
                     <span>32 commentaires</span>
                 </button>
                 <button class="action-btn">
-                    <i class="fas fa-share action-icon"></i>
+                    <span class="action-icon"><i class="fas fa-share"></i></span>
                     <span>Partager</span>
                 </button>
                 <button class="action-btn">
-                    <i class="far fa-bookmark action-icon"></i>
-                    <span>Sauvegarder</span>
+                    <span class="action-icon"><i class="far fa-bookmark"></i></span>
+                    <span>Enregistrer</span>
                 </button>
             </div>
             
             <div class="comments-section">
-                <h3 class="comments-title"><i class="far fa-comments"></i> Commentaires</h3>
+                <h3 class="comments-title">Commentaires <span>• 32</span></h3>
                 
                 <div class="comment">
                     <div class="comment-author">
@@ -921,18 +1051,9 @@
                         Excellent article ! Petite précision : le café n'a été introduit en Europe qu'après la bataille de Vienne en 1683, lorsque les Turcs en fuite ont abandonné des sacs de grains de café. Les Viennois ont ainsi découvert cette boisson et créé les premiers cafés européens.
                     </div>
                     <div class="comment-actions">
-                        <div class="comment-action">
-                            <i class="fas fa-thumbs-up"></i>
-                            <span>42</span>
-                        </div>
-                        <div class="comment-action">
-                            <i class="fas fa-reply"></i>
-                            <span>Répondre</span>
-                        </div>
-                        <div class="comment-action">
-                            <i class="fas fa-flag"></i>
-                            <span>Signaler</span>
-                        </div>
+                        <a href="#" class="comment-action"><i class="far fa-thumbs-up"></i> 124</a>
+                        <a href="#" class="comment-action"><i class="far fa-comment"></i> Répondre</a>
+                        <a href="#" class="comment-action"><i class="fas fa-flag"></i> Signaler</a>
                     </div>
                 </div>
                 
@@ -948,18 +1069,9 @@
                         Article très complet ! Aujourd'hui, on assiste à une troisième vague de café où l'accent est mis sur la qualité des grains, les méthodes de culture éthiques et les méthodes d'extraction artisanales. Le café est passé de simple boisson stimulante à un véritable produit gastronomique.
                     </div>
                     <div class="comment-actions">
-                        <div class="comment-action">
-                            <i class="fas fa-thumbs-up"></i>
-                            <span>28</span>
-                        </div>
-                        <div class="comment-action">
-                            <i class="fas fa-reply"></i>
-                            <span>Répondre</span>
-                        </div>
-                        <div class="comment-action">
-                            <i class="fas fa-flag"></i>
-                            <span>Signaler</span>
-                        </div>
+                        <a href="#" class="comment-action"><i class="far fa-thumbs-up"></i> 89</a>
+                        <a href="#" class="comment-action"><i class="far fa-comment"></i> Répondre</a>
+                        <a href="#" class="comment-action"><i class="fas fa-flag"></i> Signaler</a>
                     </div>
                 </div>
             </div>
@@ -968,123 +1080,152 @@
         <!-- Sidebar droite -->
         <div class="right-sidebar">
             <div class="widget">
-                <h3 class="widget-title"><i class="fas fa-book-open"></i> Articles similaires</h3>
+                <h3 class="widget-title"><i class="fas fa-book-open"></i>Articles similaires</h3>
                 <ul class="topic-list">
                     <li class="topic-item"><a href="#" class="topic-link">L'histoire du thé: de la Chine au monde entier</a></li>
                     <li class="topic-item"><a href="#" class="topic-link">Comment le chocolat a conquis l'Europe</a></li>
                     <li class="topic-item"><a href="#" class="topic-link">Les épices qui ont changé le cours de l'histoire</a></li>
                     <li class="topic-item"><a href="#" class="topic-link">L'impact économique des produits coloniaux</a></li>
-                    <li class="topic-item"><a href="#" class="topic-link">La révolution industrielle et les habitudes alimentaires</a></li>
+                    <li class="topic-item"><a href="#" class="topic-link">La révolution des boissons chaudes au 18ème siècle</a></li>
                 </ul>
             </div>
             
             <div class="widget">
-                <h3 class="widget-title"><i class="fas fa-crown"></i> Quora+ Exclusif</h3>
-                <p class="widget-text">Accédez à cet article et des milliers d'autres en haute qualité, sans publicité et avec des fonctionnalités premium grâce à Quora+.</p>
-                <a href="#" class="widget-button">Essayer Quora+</a>
+                <h3 class="widget-title"><i class="fas fa-star"></i>Pourquoi utiliser Quora?</h3>
+                <p class="widget-text">Quora est le meilleur endroit pour partager des connaissances et mieux comprendre le monde. Rejoignez notre communauté pour poser des questions et obtenir des réponses de qualité.</p>
+                <button class="widget-button">En savoir plus</button>
             </div>
             
             <div class="widget">
-                <h3 class="widget-title"><i class="fas fa-users"></i> Espaces populaires</h3>
+                <h3 class="widget-title"><i class="fas fa-users"></i>Espaces populaires</h3>
                 <ul class="topic-list">
                     <li class="topic-item"><a href="#" class="topic-link">Histoire et culture</a></li>
                     <li class="topic-item"><a href="#" class="topic-link">Gastronomie mondiale</a></li>
                     <li class="topic-item"><a href="#" class="topic-link">Économie et commerce</a></li>
                     <li class="topic-item"><a href="#" class="topic-link">Voyages et découvertes</a></li>
-                    <li class="topic-item"><a href="#" class="topic-link">Culture des cafés</a></li>
+                    <li class="topic-item"><a href="#" class="topic-link">Culture des boissons</a></li>
                 </ul>
             </div>
             
             <div class="widget">
-                <h3 class="widget-title"><i class="fas fa-question-circle"></i> Questions similaires</h3>
-                <ul class="topic-list">
-                    <li class="topic-item"><a href="#" class="topic-link">Quel est l'impact du café sur l'économie mondiale ?</a></li>
-                    <li class="topic-item"><a href="#" class="topic-link">Comment préparer un café parfait selon les différentes méthodes ?</a></li>
-                    <li class="topic-item"><a href="#" class="topic-link">Quels sont les pays producteurs de café les plus importants ?</a></li>
-                    <li class="topic-item"><a href="#" class="topic-link">Comment le café influence-t-il la productivité ?</a></li>
-                </ul>
+                <h3 class="widget-title"><i class="fas fa-crown"></i>Quora+ Premium</h3>
+                <p class="widget-text">Accédez à des milliers d'articles premium comme celui-ci, sans publicité et avec des fonctionnalités exclusives.</p>
+                <button class="quora-plus-button" id="sidebarQuoraPlusBtn">
+                    <i class="fas fa-crown"></i>Essayer Quora+
+                </button>
             </div>
         </div>
     </div>
     
-    <!-- Floating action button -->
-    <div class="fab" id="fabButton">
-        <i class="fas fa-crown"></i>
-    </div>
+    <!-- Navigation mobile -->
+    <nav class="mobile-nav">
+        <ul class="mobile-nav-items">
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link active">
+                    <i class="fas fa-home"></i>
+                    Accueil
+                </a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link">
+                    <i class="far fa-question-circle"></i>
+                    Questions
+                </a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link">
+                    <i class="fas fa-users"></i>
+                    Espaces
+                </a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link">
+                    <i class="far fa-bell"></i>
+                    Notifs
+                </a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link">
+                    <i class="fas fa-crown"></i>
+                    Quora+
+                </a>
+            </li>
+        </ul>
+    </nav>
     
     <!-- Pop-up Quora+ -->
     <div class="quora-plus-modal" id="quoraPlusModal">
         <button class="close-modal" id="closeModal">×</button>
         <div class="quora-plus-header">
-            <div class="quora-plus-badge">
+            <div class="quora-plus-icon">
                 <i class="fas fa-crown"></i>
             </div>
-            <div>
-                <div class="quora-plus-title">Débloquez Quora+</div>
-                <div class="quora-plus-subtitle">Accès premium à toutes les réponses</div>
-            </div>
+            <div class="quora-plus-title">Débloquez plus de contenu avec Quora+</div>
         </div>
         <div class="quora-plus-text">
-            Vous aimez ce contenu ? Avec Quora+, accédez à des milliers d'articles premium comme celui-ci, sans publicité et avec des fonctionnalités exclusives.
-        </div>
-        <div class="quora-plus-features">
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fas fa-ad"></i></div>
-                <div class="feature-text">Expérience sans publicité</div>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fas fa-star"></i></div>
-                <div class="feature-text">Contenu exclusif et premium</div>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fas fa-unlock"></i></div>
-                <div class="feature-text">Accès à toutes les réponses verrouillées</div>
-            </div>
+            Vous avez lu 30% de cet article premium. Abonnez-vous à Quora+ pour accéder à l'intégralité du contenu et à des milliers d'autres articles de qualité, sans publicité.
         </div>
         <button class="quora-plus-button" id="quoraPlusButton">
-            <i class="fas fa-crown"></i>
-            Essayer Quora+ gratuitement
+            <i class="fas fa-crown"></i>Essayer Quora+ gratuitement
         </button>
+        <div class="quora-plus-features">
+            <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="feature-text">Accès illimité aux articles premium</div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="feature-text">Navigation sans publicité</div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="feature-text">Support prioritaire</div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="feature-text">Accès anticipé aux nouvelles fonctionnalités</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Floating Quora+ Button -->
+    <div class="floating-quora-plus" id="floatingQuoraPlus">
+        <i class="fas fa-crown"></i> Débloquer l'article complet avec Quora+
     </div>
     
     <script>
-        // Afficher la notification après 10 secondes
+        // Afficher la notification après 10 secondes avec une animation fluide
         setTimeout(function() {
             const modal = document.getElementById('quoraPlusModal');
             modal.style.display = 'block';
+            setTimeout(() => modal.classList.add('visible'), 10);
+            
+            // Afficher le bouton flottant après 20 secondes
             setTimeout(() => {
-                modal.classList.add('visible');
-            }, 10);
+                const floatingBtn = document.getElementById('floatingQuoraPlus');
+                floatingBtn.classList.add('visible');
+            }, 20000);
         }, 10000);
         
         // Fermer la modal
         document.getElementById('closeModal').addEventListener('click', function() {
             const modal = document.getElementById('quoraPlusModal');
             modal.classList.remove('visible');
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, 300);
-        });
-        
-        // Floating action button
-        const fabButton = document.getElementById('fabButton');
-        fabButton.addEventListener('click', function() {
-            const modal = document.getElementById('quoraPlusModal');
-            modal.style.display = 'block';
-            setTimeout(() => {
-                modal.classList.add('visible');
-            }, 10);
-            
-            // Animation du bouton
-            fabButton.style.transform = 'scale(0.8)';
-            setTimeout(() => {
-                fabButton.style.transform = 'scale(1)';
-            }, 200);
+            setTimeout(() => modal.style.display = 'none', 400);
         });
         
         // Redirection vers Quora
-        document.getElementById('quoraPlusButton').addEventListener('click', function() {
-            window.location.href = 'https://www.quora.com/';
+        const quoraButtons = [
+            document.getElementById('quoraPlusButton'),
+            document.getElementById('headerQuoraPlusBtn'),
+            document.getElementById('sidebarQuoraPlusBtn'),
+            document.getElementById('floatingQuoraPlus')
+        ];
+        
+        quoraButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                window.location.href = 'https://www.quora.com/';
+            });
         });
         
         // Fermer la modal si on clique en dehors
@@ -1092,30 +1233,25 @@
             const modal = document.getElementById('quoraPlusModal');
             if (event.target == modal) {
                 modal.classList.remove('visible');
-                setTimeout(() => {
-                    modal.style.display = 'none';
-                }, 300);
+                setTimeout(() => modal.style.display = 'none', 400);
             }
         });
         
-        // Bouton QUORA + en header
-        document.querySelector('.quora-plus-btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            const modal = document.getElementById('quoraPlusModal');
-            modal.style.display = 'block';
-            setTimeout(() => {
-                modal.classList.add('visible');
-            }, 10);
+        // Faire défiler la page pour voir le bouton flottant
+        window.addEventListener('scroll', function() {
+            const floatingBtn = document.getElementById('floatingQuoraPlus');
+            if (window.scrollY > 500 && !floatingBtn.classList.contains('visible')) {
+                floatingBtn.classList.add('visible');
+            }
         });
         
-        // Bouton Quora+ dans la sidebar
-        document.querySelector('.widget-button').addEventListener('click', function(e) {
-            e.preventDefault();
-            const modal = document.getElementById('quoraPlusModal');
-            modal.style.display = 'block';
-            setTimeout(() => {
-                modal.classList.add('visible');
-            }, 10);
+        // Navigation mobile - basculer entre les onglets
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.mobile-nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
         });
     </script>
 </body>
